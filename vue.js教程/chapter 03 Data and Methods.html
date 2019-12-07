@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+	{{a}}
+	<hr/>
+	{{b}}
+</div>
+
+<script type="text/javascript">
+var data = { a : 1 , b:"go"};
+var vm = new Vue({
+	el   : "#app",
+	data : data,
+	watch:{
+		b:function(newVal,oldVal){
+			console.log("b:",newVal,oldVal);
+		}
+	}
+});
+
+vm.$watch('a', function(newVal, oldVal){
+	console.log(newVal, oldVal);
+})
+
+vm.$data.a = "test....";
+
+setTimeout(function(){
+	data.b="just do it!"
+},2000);
+
+</script>
+
+</body>
+</html>

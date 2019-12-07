@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title></title>
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="app">
+	<ul>
+		<li v-for="item,index in items" :key="index">
+		{{index}} {{ item.message }}
+		</li>
+	</ul>
+	<ul>
+		<li v-for="value, key in object" :key="key">
+			{{key}} : {{ value }}
+		</li>
+	</ul>
+	<ol>
+		<li v-for="item,index,key in items" :key="index">
+		{{index}} --{{key}}-- {{ item }}
+		</li>
+	</ol>
+	<ul>
+		<li v-for="item,index in objItems" :key="index">
+			<p>{{index}} : </p>
+			<ul>
+				<li v-for="value ,key in item">
+					{{key}} {{value}}
+				</li>
+			</ul>
+		</li>
+	</ul>
+	
+</div>
+<script type="text/javascript">
+var vm = new Vue({
+	el : "#app",
+	data : {
+		items : [
+			{ message: 'Foo' },
+			{ message: 'Bar' },
+			{ message: 'Cpp' },
+			{ message: 'Door'}
+		],
+		object: {
+			title: 'How to do lists in Vue',
+			author: 'Jane Doe',
+			publishedAt: '2016-04-10',
+			remark: '南无阿弥陀佛'
+		},
+		objItems:[
+			{
+				title: 'How to do lists in Vue 1',
+				author: 'Jane Doe  A',
+				publishedAt: '2016-04-10',
+				remark: '南无阿弥陀佛'
+			},
+			{
+				title: 'How to do lists in Vue 2',
+				author: 'Jane Doe B',
+				publishedAt: '2017-04-10',
+				remark: '南无观世音菩萨'
+			},
+			{
+				title: 'How to do lists in Vue 3',
+				author: 'Jane Doe C',
+				publishedAt: '2018-04-10',
+				remark: '南无大势至菩萨'
+			},
+			{
+				title: 'How to do lists in Vue 4',
+				author: 'Jane Doe D',
+				publishedAt: '2019-04-10',
+				remark: '南无地藏王菩萨'
+			},
+		]
+	}
+});
+</script>
+</body>
+</html>
